@@ -34,31 +34,7 @@ public class Twitter {
 		
 		
 	}
-	//sending new tweet 
-	@Test
-	public void posttweets()
-	{
-		RestAssured.baseURI="https://api.twitter.com/1.1/statuses/";
-		Response res=given().auth().oauth(custermerKey, cunsumerSecret, Token, TokenSecret).
-		queryParam("status","this is my tweet through automation").
-		when().post("/update.json").then().extract().response();
-		
-		
-		String responce=res.asString();//to convert into string
-		System.out.println(responce);
-		
-		JsonPath js=new JsonPath(responce);
-		String id=js.get("id").toString();
-		System.out.println(id);
-		
-		String text=js.get("text").toString();
-		System.out.println(text);
-		
-		
-		
-		
-	}
 	
-	
+	                  
 	
 }
